@@ -1,7 +1,5 @@
 from flask import Flask, render_template, jsonify, request
 from dotenv import load_dotenv
-import os
-import json
 from src.components.data_transformation import ingestion
 from src.components.model_trainer import generation
 
