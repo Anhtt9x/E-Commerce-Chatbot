@@ -7,24 +7,13 @@ def data_converter():
 
     data = product_data[['product_title','review']]
 
-    product_list = []
+    docs = []
 
     for index , row in data.iterrows():
 
-        obj = {
-            "product_title": row['product_title'],
-            "review": row['review']
-        }
+        meta_data = {"product_title":row['product_title']}
 
-        product_list.append(obj)
-
-    docs = []
-
-    for  product in product_list:
-
-        meta_data = {"product_title":product['product_title']}
-
-        doc = Document(page_content=product['review'], metadata=meta_data)
+        doc = Document(page_content=row['review'], metadata=meta_data)
 
         docs.append(doc)
 
